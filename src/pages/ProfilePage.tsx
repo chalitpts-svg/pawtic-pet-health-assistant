@@ -99,7 +99,15 @@ const ProfilePage = () => {
         </div>
 
         {/* Logout */}
-        <Button variant="ghost" className="w-full text-destructive hover:text-destructive hover:bg-destructive/10">
+        <Button 
+          variant="ghost" 
+          className="w-full text-destructive hover:text-destructive hover:bg-destructive/10"
+          onClick={() => {
+            useAppStore.getState().setHasCompletedOnboarding(false);
+            useAppStore.getState().setHasAcceptedDisclaimer(false);
+            navigate('/');
+          }}
+        >
           <LogOut className="w-5 h-5 mr-2" />
           ออกจากระบบ
         </Button>
